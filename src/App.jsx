@@ -14,19 +14,9 @@ import MarsAiPage from './pages/MarsAiPage.jsx'
 import UnityPage from './pages/UnityPage.jsx'
 import NotFoundPage from './pages/NotFoundPage.jsx'
 
-// =====================================================================
-//  BU YER — ILOVANING "XARITASI" (router).
-//  Qaysi manzilga (URL) borilsa, qaysi sahifa ochilishi shu yerda yozilgan.
-//  Masalan: "/blog" manziliga borsa -> BlogPage ochiladi.
-//
-//  <Layout> ichidagi hamma sahifalarda Navbar (menyu) ko'rinadi.
-//  Yangi sahifa qo'shmoqchi bo'lsangiz: yuqorida import qiling,
-//  pastda <Route ... /> qatorini qo'shing. Tamom!
-// =====================================================================
 function App() {
   return (
     <Routes>
-      {/* Layout — umumiy ramka (Navbar + sahifa joyi). Ichidagilar shu ramkada ochiladi. */}
       <Route path="/" element={<Layout />}>
         <Route index element={<HomePage />} />            {/* "/"          -> Bahodir */}
         <Route path="typing" element={<TypingPage />} />  {/* "/typing"    -> Aziz */}
