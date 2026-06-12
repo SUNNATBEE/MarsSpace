@@ -1,18 +1,48 @@
 import { Link, NavLink } from 'react-router-dom'
 import { headerLinks } from '../navItems.js'
 
-// Tepadagi ball/coin "pill"lari (hozircha namuna sonlar — keyin real datadan keladi)
-const stats = [
-  { icon: '💚', value: '747 501', color: 'text-emerald-600' },
-  { icon: '🔥', value: '486', color: 'text-orange-500' },
-  { icon: '🪙', value: '4 070', color: 'text-violet-600' },
-]
+import React, { useState, useEffect } from 'react'
 
-// =====================================================================
-//  HEADER — eng tepadagi panel (hamma sahifada ko'rinadi).
-//  Chapda: MARS logo. O'ngda: ballar, Shop/Mars AI, "Obuna bo'ling", avatar.
-// =====================================================================
 function Header() {
+  const [coins, setCoins] = useState(0);
+
+  const updateCoinsFromStorage = () => {
+    const saved = localStorage.getItem('marscode_completed');
+    let totalSolved = 0;
+    if (saved) {
+      try {
+        const completed = JSON.parse(saved);
+        Object.keys(completed).forEach(company => {
+          totalSolved += completed[company]?.length || 0;
+        });
+      } catch (e) {
+        console.error("Error parsing completed questions for coins calculation:", e);
+      }
+    }
+    setCoins(totalSolved * 3);
+  };
+
+  useEffect(() => {
+    updateCoinsFromStorage();
+
+    const handleUpdate = () => {
+      updateCoinsFromStorage();
+    };
+
+    window.addEventListener('marscode-coins-updated', handleUpdate);
+    window.addEventListener('storage', handleUpdate);
+
+    return () => {
+      window.removeEventListener('marscode-coins-updated', handleUpdate);
+      window.removeEventListener('storage', handleUpdate);
+    };
+  }, []);
+
+  const stats = [
+    { icon: '💚', value: '747 501', color: 'text-emerald-600' },
+    { icon: '🔥', value: '486', color: 'text-orange-500' },
+    { icon: '🪙', value: coins.toLocaleString(), color: 'text-violet-600 font-bold' },
+  ];
   return (
     <header className="sticky top-0 z-50 flex h-16 items-center justify-between border-b border-slate-200 bg-white px-4 md:px-6">
       {/* Logo */}
