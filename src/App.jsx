@@ -16,10 +16,12 @@ import NotFoundPage from './pages/NotFoundPage.jsx'
 import Newfrontent from './Newfrontent.jsx'
 import Begginer from './Begginer.jsx'
 import Online from './Online.jsx'
+import RegistrationPage from './pages/RegistrationPage.jsx'
 
 function App() {
   return (
     <Routes>
+      <Route path="registration" element={<RegistrationPage />} /> {/* "/registration" -> John Doe */}
       <Route path="/" element={<Layout />}>
         <Route index element={<HomePage />} />            {/* "/"          -> Bahodir */}
         <Route path="typing" element={<TypingPage />} />  {/* "/typing"    -> Aziz */}
@@ -31,7 +33,6 @@ function App() {
         <Route path="shop" element={<ShopPage />} />           {/* "/shop"      -> Sohiba */}
         <Route path="mars-ai" element={<MarsAiPage />} />      {/* "/mars-ai"   -> Behruz */}
         <Route path="unity" element={<UnityPage />} />         {/* "/unity"     -> Azamat */}
-
         {/* Mavjud bo'lmagan manzil yozilsa -> 404 sahifa */}
         <Route path="*" element={<NotFoundPage />} />
             
