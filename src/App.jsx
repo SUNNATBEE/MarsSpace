@@ -13,6 +13,7 @@ import ShopPage from './pages/ShopPage.jsx'
 import MarsAiPage from './pages/MarsAiPage.jsx'
 import UnityPage from './pages/UnityPage.jsx'
 import NotFoundPage from './pages/NotFoundPage.jsx'
+import RegistrationPage from './pages/RegistrationPage.jsx'
 
 // =====================================================================
 //  BU YER — ILOVANING "XARITASI" (router).
@@ -26,6 +27,7 @@ import NotFoundPage from './pages/NotFoundPage.jsx'
 function App() {
   return (
     <Routes>
+      <Route path="registration" element={<RegistrationPage />} /> {/* "/registration" -> John Doe */}
       {/* Layout — umumiy ramka (Navbar + sahifa joyi). Ichidagilar shu ramkada ochiladi. */}
       <Route path="/" element={<Layout />}>
         <Route index element={<HomePage />} />            {/* "/"          -> Bahodir */}
@@ -38,7 +40,6 @@ function App() {
         <Route path="shop" element={<ShopPage />} />           {/* "/shop"      -> Sohiba */}
         <Route path="mars-ai" element={<MarsAiPage />} />      {/* "/mars-ai"   -> Behruz */}
         <Route path="unity" element={<UnityPage />} />         {/* "/unity"     -> Azamat */}
-
         {/* Mavjud bo'lmagan manzil yozilsa -> 404 sahifa */}
         <Route path="*" element={<NotFoundPage />} />
       </Route>
