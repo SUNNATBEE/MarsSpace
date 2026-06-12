@@ -58,7 +58,9 @@ function Header() {
         </button>
 
         {/* Avatar */}
-        <div className="h-9 w-9 rounded-full bg-gradient-to-br from-orange-400 to-violet-500" />
+        <Link to="/registration">
+          <div className="h-9 w-9 rounded-full bg-gradient-to-br from-orange-400 to-violet-500" />
+        </Link>
       </div>
     </header>
   )
