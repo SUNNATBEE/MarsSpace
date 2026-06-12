@@ -13,6 +13,9 @@ import ShopPage from './pages/ShopPage.jsx'
 import MarsAiPage from './pages/MarsAiPage.jsx'
 import UnityPage from './pages/UnityPage.jsx'
 import NotFoundPage from './pages/NotFoundPage.jsx'
+import Newfrontent from './Newfrontent.jsx'
+import Begginer from './Begginer.jsx'
+import Online from './Online.jsx'
 
 function App() {
   return (
@@ -31,8 +34,13 @@ function App() {
 
         {/* Mavjud bo'lmagan manzil yozilsa -> 404 sahifa */}
         <Route path="*" element={<NotFoundPage />} />
-      </Route>
+            
+        </Route>
+      <Route path="/frontend" element={<Newfrontent />} />
+      <Route path='begginer' element={<Begginer/>}/>
+      <Route path='online' element={<Online/>}/>
     </Routes>
+
   )
 }
 
