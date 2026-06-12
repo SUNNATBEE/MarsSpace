@@ -7,6 +7,8 @@ import TypingPage from './pages/TypingPage.jsx'
 import KurslarimPage from './pages/KurslarimPage.jsx'
 import EduversePage from './pages/EduversePage.jsx'
 import MarsCodePage from './pages/MarsCodePage.jsx'
+import MarsCodeQuestionsPage from './pages/MarsCodeQuestionsPage.jsx'
+import MarsCodeQuizPage from './pages/MarsCodeQuizPage.jsx'
 import BlogPage from './pages/BlogPage.jsx'
 import TolovPage from './pages/TolovPage.jsx'
 import ShopPage from './pages/ShopPage.jsx'
@@ -33,6 +35,8 @@ function App() {
         <Route path="kurslarim" element={<KurslarimPage />} /> {/* "/kurslarim" -> Mannonov Behruz */}
         <Route path="eduverse" element={<EduversePage />} />   {/* "/eduverse"  -> Mansur */}
         <Route path="marscode" element={<MarsCodePage />} />   {/* "/marscode"  -> Ayub */}
+        <Route path="marscode/questions/:companyId" element={<MarsCodeQuestionsPage />} />
+        <Route path="marscode/quiz/:companyId/:questionId" element={<MarsCodeQuizPage />} />
         <Route path="blog" element={<BlogPage />} />           {/* "/blog"      -> Mirlan */}
         <Route path="tolov" element={<TolovPage />} />         {/* "/tolov"     -> Bahrom */}
         <Route path="shop" element={<ShopPage />} />           {/* "/shop"      -> Sohiba */}
